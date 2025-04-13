@@ -1,48 +1,52 @@
-NGÀY 1 – SPRING BOOT FOUNDATION
+LỘ TRÌNH HỌC JAVA BACKEND - DAY 2
 
-🎯 Mục tiêu:
-Hiểu cấu trúc project Spring Boot
+🎯 Mục tiêu Day 2: Thành thạo RESTful API cơ bản với Spring Boot
 
-Biết cách tạo REST API (GET/POST/PUT/DELETE)
+- Hiểu rõ luồng request – response
+- Biết cách dùng các HTTP method (GET, POST, PUT, DELETE)
+- Dùng DTO, mapping, xử lý input/output
+- Thực hành CRUD đơn giản
 
-Sử dụng các annotation cơ bản:
-- @Component
-- @Service
-- @Repository 
-- @RestController
+📚 Nội dung chính
+
+✅ 1. Kiến thức cần học
+
+| Chủ đề	                | Nội dung                                                                                      |
+|------------------------|-----------------------------------------------------------------------------------------------|
+| 🔸 Spring Boot REST	   | @RestController, @RequestMapping, @GetMapping, @PostMapping, @PathVariable, @RequestBody<br/> |
+| 🔸 CRUD API	           | Viết API cho 1 entity (vd: User, Book, Product)                                               |
+| 🔸 DTO                 | Tạo class UserDTO, sử dụng ModelMapper hoặc tự mapping                                        |
+| 🔸 ResponseEntity      | Cách trả kết quả HTTP chuẩn (status, body)                                                    |
+| 🔸 Validating input	   | @Valid, @NotNull, @Email, @Size, BindingResult                                                |
+| 🔸 Exception handling	 | Bổ sung GlobalExceptionHandler xử lý @Valid lỗi                                               |
 
 
-Xử lý Transaction và Exception
+✅ 2. Bài tập thực hành
+👉 Tạo API cho User entity (dùng H2 hoặc file-based H2):
+- POST /users – tạo user mới
+- GET /users/{id} – lấy user theo ID
+- PUT /users/{id} – cập nhật thông tin user
+- DELETE /users/{id} – xoá user
+- GET /users – lấy danh sách user
 
-1. Cài đặt môi trường
 
-Cần có:
-- Java 17 hoặc Java 11
-- IntelliJ IDEA hoặc VSCode
-- Maven hoặc Gradle
-- Postman hoặc curl
-- Spring Initializr: https://start.spring.io
+3. Yêu cầu nâng cao 
+- Thêm UserDTO để tách Entity với API
+- Thêm validate: @NotBlank, @Email, @Size trong DTO
+- Nếu có thời gian: Viết test đơn giản cho UserService
 
-Chọn dependencies:
-- Spring Web
-- Spring Data JPA
-- H2 Database (hoặc MySQL)
-- Lombok
-- Spring Boot DevTools
 
-3. Tạo Project CRUD Quản Lý User
-```css
-src/
-└── main/java/com/example/demo
-    ├── controller/UserController.java
-    ├── service/UserService.java
-    ├── repository/UserRepository.java
-    ├── model/User.java
-    └── DemoApplication.java
-```
+🛠️ Tools cần dùng
+- Spring Boot 3+
+- Maven/Gradle
+- Spring Web, Spring Data JPA, H2 Database
+- (Optional) ModelMapper hoặc MapStruct
+- Postman hoặc curl để test API
 
-BÀI TẬP TỰ ÔN CUỐI NGÀY:
-- Viết thêm trường "age" cho User và cập nhật API
-- Tạo mới 1 entity Book có title, author, price
-- Viết API CRUD cho Book
-- Thêm custom Exception UserNotFoundException thay RuntimeException
+
+🎓 Sau Day 2 bạn sẽ:
+- Hiểu rõ cách xây dựng REST API từ đầu
+- Biết chuẩn hoá input/output với DTO
+- Áp dụng tốt validation và exception handling
+- Viết được 1 service đơn giản đầy đủ flow
+
