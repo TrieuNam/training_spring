@@ -1,7 +1,7 @@
 package com.tpnam.spring_boot.controller;
 
 import com.tpnam.spring_boot.dto.UserDTO;
-import com.tpnam.spring_boot.model.User;
+import com.tpnam.spring_boot.entity.User;
 import com.tpnam.spring_boot.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

@@ -3,7 +3,7 @@ package com.tpnam.spring_boot.service;
 import com.tpnam.spring_boot.dto.UserDTO;
 import com.tpnam.spring_boot.exception.UserNotFoundException;
 import com.tpnam.spring_boot.mapper.UserMapper;
-import com.tpnam.spring_boot.model.User;
+import com.tpnam.spring_boot.entity.User;
 import com.tpnam.spring_boot.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

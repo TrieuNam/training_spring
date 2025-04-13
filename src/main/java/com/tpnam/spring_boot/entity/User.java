@@ -1,9 +1,12 @@
-package com.tpnam.spring_boot.model;
+package com.tpnam.spring_boot.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -19,4 +22,8 @@ public class User {
     private String email;
 
     private String age;
+
+    // Quan hệ 1-nhiều với Post
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Post> posts = new ArrayList<>();
 }
