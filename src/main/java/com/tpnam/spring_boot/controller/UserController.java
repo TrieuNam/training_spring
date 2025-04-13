@@ -1,8 +1,11 @@
 package com.tpnam.spring_boot.controller;
 
+import com.tpnam.spring_boot.dto.UserDTO;
 import com.tpnam.spring_boot.model.User;
 import com.tpnam.spring_boot.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,29 +19,30 @@ public class UserController {
 
 
     @GetMapping
-    public List<User> getALl() {
-        return userService.getAll();
+    public ResponseEntity<List<User>> getALl() {
+        return ResponseEntity.ok(userService.getAll());
     }
 
     @GetMapping("/{id}")
-    public User getById(@PathVariable("id") Long id) {
-        return userService.getById(id);
+    public ResponseEntity<UserDTO> getById(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(userService.getById(id));
     }
 
 
     @PostMapping
-    public User create(@RequestBody User user) {
-        return userService.create(user);
+    public ResponseEntity<UserDTO> create(@RequestBody UserDTO userDTO) {
+        return new ResponseEntity<>(userService.create(userDTO), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public User update(@PathVariable("id") Long id, @RequestBody User user) {
-        return userService.update(id, user);
+    public ResponseEntity<UserDTO> update(@PathVariable("id") Long id, @RequestBody UserDTO userDTO) {
+        return ResponseEntity.ok(userService.update(id, userDTO));
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") Long id) {
+    public ResponseEntity<Void> delete(@PathVariable("id") Long id) {
         userService.delete(id);
+        return ResponseEntity.noContent().build();
     }
 
 }
