@@ -33,6 +33,7 @@ LỘ TRÌNH HỌC JAVA BACKEND - DAY 2
 3. Yêu cầu nâng cao 
 - Thêm UserDTO để tách Entity với API
 - Thêm validate: @NotBlank, @Email, @Size trong DTO
+- Sử dụng mapper and mapstuct
 - Nếu có thời gian: Viết test đơn giản cho UserService
 
 
@@ -41,6 +42,55 @@ LỘ TRÌNH HỌC JAVA BACKEND - DAY 2
 - Maven/Gradle
 - Spring Web, Spring Data JPA, H2 Database
 - (Optional) ModelMapper hoặc MapStruct
+Mapstruct:
+```xml
+  <!-- MapStruct -->
+<dependencies>
+    <dependency>
+        <groupId>org.mapstruct</groupId>
+        <artifactId>mapstruct</artifactId>
+        <version>${mapstruct.version}</version>
+    </dependency>
+</dependencies>
+
+<build>
+<plugins>
+    <!-- Maven Compiler Plugin cho annotation processing -->
+    <plugin>
+        <configuration>
+            <annotationProcessorPaths>
+                <path>
+                    <groupId>org.mapstruct</groupId>
+                    <artifactId>mapstruct-processor</artifactId>
+                    <version>${mapstruct.version}</version>
+                </path>
+            </annotationProcessorPaths>
+        </configuration>
+    </plugin>
+</plugins>
+</build>
+```
+ModelMapper:
+- maven:
+```xml
+
+<dependency>
+    <groupId>org.modelmapper</groupId>
+    <artifactId>modelmapper</artifactId>
+    <version>3.1.1</version>
+</dependency>
+```
+- create config mapper:
+```java
+@Configuration
+public class ModelMapperConfig {
+    @Bean
+    public ModelMapper modelMapper() {
+        return new ModelMapper();
+    }
+}
+```
+
 - Postman hoặc curl để test API
 
 
@@ -48,5 +98,9 @@ LỘ TRÌNH HỌC JAVA BACKEND - DAY 2
 - Hiểu rõ cách xây dựng REST API từ đầu
 - Biết chuẩn hoá input/output với DTO
 - Áp dụng tốt validation và exception handling
-- Viết được 1 service đơn giản đầy đủ flow
+
+- Viết được 1 service đơn giản đầy đủ flow:
+  - junit: sử dụng Mockito
+  - integration test: test với DB h2
+
 

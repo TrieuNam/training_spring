@@ -1,6 +1,6 @@
 package com.tpnam.spring_boot.controller;
 
-import com.tpnam.spring_boot.model.Book;
+import com.tpnam.spring_boot.entity.Book;
 import com.tpnam.spring_boot.service.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

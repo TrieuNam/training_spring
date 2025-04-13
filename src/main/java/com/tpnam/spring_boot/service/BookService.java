@@ -1,6 +1,6 @@
 package com.tpnam.spring_boot.service;
 
-import com.tpnam.spring_boot.model.Book;
+import com.tpnam.spring_boot.entity.Book;
 import com.tpnam.spring_boot.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

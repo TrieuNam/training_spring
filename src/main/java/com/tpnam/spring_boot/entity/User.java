@@ -1,4 +1,4 @@
-package com.tpnam.spring_boot.model;
+package com.tpnam.spring_boot.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
